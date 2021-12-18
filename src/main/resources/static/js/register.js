@@ -25,7 +25,7 @@ if (repeatPassword != data.password){
 		},
 		    body: JSON.stringify(data)
 	});
-	alert("la cuenta fue creada con exito");
+	alert("La cuenta fue creada con exito");
 	window.location.href = 'login.html'
 
 
