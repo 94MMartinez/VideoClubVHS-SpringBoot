@@ -6,4 +6,6 @@ public interface UserDao {
 	
 	void register(User user);
 
+	boolean verifyAccount(User user);
+
 }

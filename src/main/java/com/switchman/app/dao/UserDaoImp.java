@@ -1,5 +1,7 @@
 package com.switchman.app.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -22,7 +24,23 @@ public class UserDaoImp implements UserDao {
 	public void register(User user) {
 		entityManager.merge(user);
 	}
+
+
+
+	@Override
+	public boolean verifyAccount(User user) {
+		String query = "FROM User Where email = :email AND password = :password";
+		List<User> list = entityManager.createQuery(query)
+				.setParameter("email", user.getEmail())
+				.setParameter("password", user.getPassword())
+				.getResultList();
+		
+
+			return !list.isEmpty();
+		}
+		
+	}
 	
 	
 
-}
+
